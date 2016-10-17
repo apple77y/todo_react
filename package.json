@@ -3,7 +3,10 @@
     "version": "1.0.0",
     "main": "index.js",
     "scripts": {
-        
+        "postinstall": "npm run build",
+        "prebuild": "rm -rf js/dist && mkdir js/dist",
+        "build": "./node_modules/webpack/bin/webpack.js --config webpack.config.js",
+        "watch": "./node_modules/webpack/bin/webpack.js --config webpack.config.js --watch"
     },
     "author": "",
     "license": "ISC",
