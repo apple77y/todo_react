@@ -8,6 +8,13 @@ var EditLi = require('../component/EditLi');
 var Container = React.createClass({
     getInitialState: function () {
         return {
+            text: '',
+            todos: []
+        };
+    },
+
+    componentDidMount: function () {
+        this.setState({
             text: 'To do list',
             todos: [
                 '이것도 해야 되고',
@@ -15,7 +22,7 @@ var Container = React.createClass({
                 '그것도 해야 되고',
                 '언제 다하나'
             ]
-        };
+        })
     },
 
     render: function () {
