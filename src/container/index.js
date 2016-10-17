@@ -18,7 +18,15 @@ var Container = React.createClass({
     },
 
     componentDidMount: function () {
-        console.log('componentDidMount');
+        this.setState({
+            text: 'To do list',
+            todos: [
+                '이것도 해야 되고',
+                '저것도 해야 되고',
+                '그것도 해야 되고',
+                '언제 다하나'
+            ]
+        });
     },
 
     componentWillReceiveProps: function () {
