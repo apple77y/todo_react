@@ -1,0 +1,18 @@
+ul{
+	padding:0;
+	list-style: none;
+}
+li{
+	padding: 10px 0px;
+	border-bottom:1px solid #eee;
+}
+.container{
+	max-width:900px;
+	font-size:18px;
+}
+.btn-container{
+	float: right;
+}
+.btn-container a{
+	margin-right:10px;
+}
