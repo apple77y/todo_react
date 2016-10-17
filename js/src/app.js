@@ -1,8 +1,9 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 
-var Title = require('./component/title');
-var AddLi = require('./component/addLi');
+var Title = require('./component/Title');
+var AddLi = require('./component/AddLi');
+var EditLi = require('./component/EditLi');
 
 var todos = [
     '이것도 해야 되고',
@@ -20,15 +21,6 @@ var todoLi = todos.map(function (todo, i) {
     );
 });
 
-var editLi = (
-    <li className="input-group input-group-lg">
-        <input type="text" className="form-control" placeholder="수정 버튼 누르면 이렇게"/>
-        <span className="input-group-btn">
-            <button className="btn btn-primary" type="button">수정완료</button>
-        </span>
-    </li>
-);
-
 ReactDOM.render(
     <div className="container">
         <Title />
@@ -36,7 +28,7 @@ ReactDOM.render(
         <hr/>
         <ul>
             {todoLi}
-            {editLi}
+            <EditLi />
         </ul>
     </div>,
 
