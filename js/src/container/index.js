@@ -13,16 +13,28 @@ var Container = React.createClass({
         };
     },
 
+    componentWillMount: function () {
+        console.log('componentWillMount');
+    },
+
     componentDidMount: function () {
-        this.setState({
-            text: 'To do list',
-            todos: [
-                '이것도 해야 되고',
-                '저것도 해야 되고',
-                '그것도 해야 되고',
-                '언제 다하나'
-            ]
-        })
+        console.log('componentDidMount');
+    },
+
+    componentWillReceiveProps: function () {
+        console.log('componentWillReceiveProps');
+    },
+
+    componentWillUpdate: function () {
+        console.log('componentWillUpdate');
+    },
+
+    componentDidUpdate: function () {
+        console.log('componentDidUpdate');
+    },
+
+    componentWillUnmount: function () {
+        console.log('componentWillUnmount');
     },
 
     render: function () {
