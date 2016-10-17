@@ -1,23 +1,14 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 
-if (module.hot) {
-    module.hot.accept();
-}
+var Title = require('./component/title');
 
-var title = 'To do list';
 var todos = [
     '이것도 해야 되고',
     '저것도 해야 되고',
     '그것도 해야 되고',
     '언제 다하나'
 ];
-
-var title = (
-    <div className="page-header">
-        <h1>{title}</h1>
-    </div>
-);
 
 var addLi = (
     <div className="input-group input-group-lg">
@@ -39,7 +30,7 @@ var todoLi = todos.map(function (todo, i) {
 
 ReactDOM.render(
     <div className="container">
-        {title}
+        <Title />
         {addLi}
         <hr/>
         <ul>
