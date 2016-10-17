@@ -9,7 +9,22 @@ var todos = [
     '언제 다하나'
 ];
 
-var li = todos.map(function (todo, i) {
+var title = (
+    <div className="page-header">
+        <h1>{title}</h1>
+    </div>
+);
+
+var addLi = (
+    <div className="input-group input-group-lg">
+        <input type="text" className="form-control" placeholder="할 일을 입력해주세요"/>
+        <span className="input-group-btn">
+            <button className="btn btn-primary" type="button">등록</button>
+        </span>
+    </div>
+);
+
+var todoLi = todos.map(function (todo, i) {
     return (
         <li key={"todo" + i}>
             <span>{todo}</span>
@@ -18,26 +33,23 @@ var li = todos.map(function (todo, i) {
     );
 });
 
+var editLi = (
+    <li className="input-group input-group-lg">
+        <input type="text" className="form-control" placeholder="수정 버튼 누르면 이렇게"/>
+        <span className="input-group-btn">
+            <button className="btn btn-primary" type="button">수정완료</button>
+        </span>
+    </li>
+);
+
 ReactDOM.render(
     <div className="container">
-        <div className="page-header">
-            <h1>{title}</h1>
-        </div>
-        <div className="input-group input-group-lg">
-            <input type="text" className="form-control" placeholder="할 일을 입력해주세요"/>
-				<span className="input-group-btn">
-                    <button className="btn btn-primary" type="button">등록</button>
-		    	</span>
-        </div>
+        {title}
+        {addLi}
         <hr/>
         <ul>
-            {li}
-            <li className="input-group input-group-lg">
-                <input type="text" className="form-control" placeholder="수정 버튼 누르면 이렇게"/>
-					<span className="input-group-btn">
-                        <button className="btn btn-primary" type="button">수정완료</button>
-			    	</span>
-            </li>
+            {todoLi}
+            {editLi}
         </ul>
     </div>,
 
