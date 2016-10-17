@@ -45,6 +45,12 @@ var Container = React.createClass({
         console.log('componentWillUnmount');
     },
 
+    handleData: function (inputValue) {
+        this.setState({
+            todos: this.state.todos.push(inputValue)
+        });
+    },
+
     render: function () {
         return (
             <div className="container">
