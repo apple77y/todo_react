@@ -6,6 +6,8 @@ var AddLi = require('./component/AddLi');
 var TodoLi = require('./component/TodoLi');
 var EditLi = require('./component/EditLi');
 
+var text = 'To do list';
+
 var todos = [
     '이것도 해야 되고',
     '저것도 해야 되고',
@@ -15,7 +17,7 @@ var todos = [
 
 ReactDOM.render(
     <div className="container">
-        <Title />
+        <Title text={text} />
         <AddLi />
         <hr/>
         <ul>
