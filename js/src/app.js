@@ -9,6 +9,15 @@ var todos = [
     '언제 다하나'
 ];
 
+var li = todos.map(function (todo, i) {
+    return (
+        <li key={"todo" + i}>
+            <span>{todo}</span>
+            <span className="btn-container"><a href="#">수정</a><a href="#">삭제</a></span>
+        </li>
+    );
+});
+
 ReactDOM.render(
     <div className="container">
         <div className="page-header">
@@ -22,22 +31,7 @@ ReactDOM.render(
         </div>
         <hr/>
         <ul>
-            <li>
-                <span>{todos[0]}</span>
-                <span className="btn-container"><a href="#">수정</a><a href="#">삭제</a></span>
-            </li>
-            <li>
-                <span>{todos[1]}</span>
-                <span className="btn-container"><a href="#">수정</a><a href="#">삭제</a></span>
-            </li>
-            <li>
-                <span>{todos[2]}</span>
-                <span className="btn-container"><a href="#">수정</a><a href="#">삭제</a></span>
-            </li>
-            <li>
-                <span>{todos[3]}</span>
-                <span className="btn-container"><a href="#">수정</a><a href="#">삭제</a></span>
-            </li>
+            {li}
             <li className="input-group input-group-lg">
                 <input type="text" className="form-control" placeholder="수정 버튼 누르면 이렇게"/>
 					<span className="input-group-btn">
