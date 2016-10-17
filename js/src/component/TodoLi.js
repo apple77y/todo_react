@@ -11,7 +11,11 @@ var TodoLi = React.createClass({
             );
         });
 
-        return {todoLi}
+        return (
+            <div>
+                {todoLi}
+            </div>
+        );
     }
 });
 
