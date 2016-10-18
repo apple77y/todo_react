@@ -7,7 +7,7 @@
         "prebuild": "rm -rf js/dist && mkdir js/dist",
         "build": "./node_modules/webpack/bin/webpack.js --config webpack.config.js",
         "watch": "./node_modules/webpack/bin/webpack.js --config webpack.config.js --watch",
-        "devserver": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config webpack.config.js --content-base ./"
+        "devserver": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config webpack.dev.config.js"
     },
     "author": "",
     "license": "ISC",
