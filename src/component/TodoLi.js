@@ -10,7 +10,9 @@ var TodoLi = React.createClass({
         return (
             <li>
                 <span>{this.props.todo}</span>
-                <span className="btn-container"><a href="#">수정</a><a href="#" onClick={this.onClickRemove}>삭제</a></span>
+                <span className="btn-container">
+                    <a href="#" onClick={this.onClickRemove}>삭제</a>
+                </span>
             </li>
         );
     }
