@@ -3,7 +3,6 @@ var React = require('react');
 var Title = require('../component/Title');
 var AddLi = require('../component/AddLi');
 var TodoLi = require('../component/TodoLi');
-var EditLi = require('../component/EditLi');
 
 var Container = React.createClass({
     getInitialState: function () {
@@ -77,7 +76,6 @@ var Container = React.createClass({
                 <hr/>
                 <ul>
                     {todoLi}
-                    <EditLi />
                 </ul>
             </div>
         );
