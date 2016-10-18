@@ -55,13 +55,17 @@ var Container = React.createClass({
     },
 
     render: function () {
+        var todoLi = this.state.todos.map(function (todo, i) {
+            return <TodoLi todo={todo} key={i}/>;
+        });
+
         return (
             <div className="container">
                 <Title text={this.state.text}/>
                 <AddLi handleData={this.handleData} />
                 <hr/>
                 <ul>
-                    <TodoLi todos={this.state.todos} />
+                    {todoLi}
                     <EditLi />
                 </ul>
             </div>
