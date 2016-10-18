@@ -46,16 +46,19 @@ var Container = React.createClass({
     },
 
     handleData: function (inputValue) {
+        this.state.todos.push(inputValue);
+        var newTodos = this.state.todos;
+
         this.setState({
-            todos: this.state.todos.push(inputValue)
+            todos: newTodos
         });
     },
 
     render: function () {
         return (
             <div className="container">
-                <Title text={this.state.text} />
-                <AddLi />
+                <Title text={this.state.text}/>
+                <AddLi handleData={this.handleData} />
                 <hr/>
                 <ul>
                     <TodoLi todos={this.state.todos} />
