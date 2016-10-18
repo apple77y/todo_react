@@ -6,7 +6,8 @@
         "postinstall": "npm run build",
         "prebuild": "rm -rf js/dist && mkdir js/dist",
         "build": "./node_modules/webpack/bin/webpack.js --config webpack.config.js",
-        "watch": "./node_modules/webpack/bin/webpack.js --config webpack.config.js --watch"
+        "watch": "./node_modules/webpack/bin/webpack.js --config webpack.config.js --watch",
+        "devserver": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config webpack.config.js --content-base ./"
     },
     "author": "",
     "license": "ISC",
@@ -18,7 +19,9 @@
         "babel-core": "^6.17.0",
         "babel-loader": "^6.2.5",
         "babel-preset-react": "^6.16.0",
-        "webpack": "^1.13.2"
+        "react-hot-loader": "^3.0.0-beta.6",
+        "webpack": "^1.13.2",
+        "webpack-dev-server": "^1.16.2"
     },
     "description": ""
 }
