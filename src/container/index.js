@@ -54,6 +54,16 @@ var Container = React.createClass({
         });
     },
 
+    handleRemovedData: function (todo) {
+        var index = this.state.todos.indexOf(todo);
+        this.state.todos.splice(index, 1);
+
+        var newTodos = this.state.todos;
+        this.setState({
+            todos: newTodos
+        });
+    },
+
     render: function () {
         var todoLi = this.state.todos.map(function (todo, i) {
             return <TodoLi todo={todo} key={i}/>;
