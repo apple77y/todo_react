@@ -65,8 +65,9 @@ var Container = React.createClass({
     },
 
     render: function () {
+        var self = this;
         var todoLi = this.state.todos.map(function (todo, i) {
-            return <TodoLi todo={todo} key={i}/>;
+            return <TodoLi todo={todo} key={i} handleRemovedData={self.handleRemovedData} />;
         });
 
         return (
