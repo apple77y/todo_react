@@ -45,7 +45,7 @@ var Container = React.createClass({
         console.log('componentWillUnmount');
     },
 
-    handleData: function (inputValue) {
+    handleAddedData: function (inputValue) {
         this.state.todos.push(inputValue);
         var newTodos = this.state.todos;
 
@@ -62,7 +62,7 @@ var Container = React.createClass({
         return (
             <div className="container">
                 <Title text={this.state.text}/>
-                <AddLi handleData={this.handleData} />
+                <AddLi handleAddedData={this.handleAddedData} />
                 <hr/>
                 <ul>
                     {todoLi}
