@@ -14,7 +14,7 @@ var AddLi = React.createClass({
                        ref={function(ref){this.textInput = ref;}.bind(this)}
                 />
                 <span className="input-group-btn">
-                <button className="btn btn-primary" type="button" onClick={this.onClickAdd.bind(null, this)}>등록</button>
+                <button className="btn btn-primary" type="button" onClick={this.onClickAdd}>등록</button>
                 </span>
             </div>
         );
