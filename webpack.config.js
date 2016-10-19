@@ -1,10 +1,21 @@
+var webpack = require('webpack');
+
 module.exports = {
-    entry: './js/src/App.js',
+    entry: './src/App.js',
 
     output: {
-        path: './js/dist',
+        path: './dist',
         filename: 'bundle.js'
     },
+
+    plugins: [
+        new webpack.optimize.OccurenceOrderPlugin(),
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false
+            }
+        })
+    ],
 
     module: {
         loaders: [
