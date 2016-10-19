@@ -41,5 +41,5 @@
 
 #### [propsTypes](https://github.com/apple77y/todo_react/tree/07-propTypes)
 ```
-- 데이터(props)의 데이터 형 체크를 통한 오류 방지
+- 데이터(props)의 형(type) 체크를 통한 개발 오류 방지
 ```
