@@ -1,6 +1,10 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 
+if (module.hot) {
+    module.hot.accept();
+}
+
 var title = 'To do list';
 var todos = [
     '이것도 해야 되고',
