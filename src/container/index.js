@@ -45,6 +45,9 @@ var Container = React.createClass({
     },
 
     handleAddedData: function (todo) {
+        if (!todo.trim()) {
+            return false;
+        }
         this.state.todos.push(todo);
         var newTodos = this.state.todos;
 
