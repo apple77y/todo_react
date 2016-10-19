@@ -4,7 +4,6 @@ var ReactDOM = require('react-dom');
 var Title = require('./component/Title');
 var AddLi = require('./component/AddLi');
 var TodoLi = require('./component/TodoLi');
-var EditLi = require('./component/EditLi');
 
 if (module.hot) {
     module.hot.accept();
@@ -17,7 +16,6 @@ ReactDOM.render(
         <hr/>
         <ul>
             <TodoLi />
-            <EditLi />
         </ul>
     </div>,
 
