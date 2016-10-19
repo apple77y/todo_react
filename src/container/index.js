@@ -48,21 +48,26 @@ var Container = React.createClass({
         if (!todo.trim()) {
             return false;
         }
-        this.state.todos.push(todo);
-        var newTodos = this.state.todos;
 
-        this.setState({
-            todos: newTodos
+        this.setState(function (prevState) {
+            prevState.todos.push(todo);
+            var newTodos = prevState.todos;
+
+            return {
+                todos: newTodos
+            }
         });
     },
 
     handleRemovedData: function (todo) {
-        var index = this.state.todos.indexOf(todo);
-        this.state.todos.splice(index, 1);
+        this.setState(function (prevState) {
+            var index = prevState.todos.indexOf(todo);
+            prevState.todos.splice(index, 1);
+            var newTodos = prevState.todos;
 
-        var newTodos = this.state.todos;
-        this.setState({
-            todos: newTodos
+            return {
+                todos: newTodos
+            };
         });
     },
 
