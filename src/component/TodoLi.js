@@ -1,6 +1,7 @@
 var React = require('react');
 
 var TodoLi = React.createClass({
+
     render: function () {
         var todoLi = this.props.todos.map(function (todo, i) {
             return (
