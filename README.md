@@ -3,9 +3,15 @@
 ### 매 단원은 브랜치로 구분되어있음
 
 
-#### [devSetting](https://github.com/apple77y/todo_react/tree/01-devSetting)
+#### [devSetting](https://github.com/apple77y/todo_react/tree/00-devSetting)
 ```
 -  웹팩을 활용한 배포용, 개발용 환경 구축, 개발용은 HMR을 활용
+```
+
+
+#### [helloWorld](https://github.com/apple77y/todo_react/tree/01-helloWorld)
+```
+-  Hello World를 화면에 출력
 ```
 
 
