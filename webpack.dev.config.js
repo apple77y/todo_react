@@ -1,38 +1,30 @@
 var webpack = require('webpack');
+var path = require('path');
 
 module.exports = {
-    entry: './js/src/App.js',
+
+    entry: [
+        'webpack-dev-server/client?http://localhost:3000',
+        'webpack/hot/only-dev-server',
+        './src/App.js'
+    ],
 
     output: {
-        path: '/',
-        filename: 'bundle.js'
-    },
-
-    devServer: {
-        hot: true,
-        inline: true,
+        path: path.join(__dirname, 'dist'),
         filename: 'bundle.js',
-        publicPath: '/js/dist',
-        contentBase: './'
+        publicPath: '/static/'
     },
 
     plugins: [
-        new webpack.optimize.OccurenceOrderPlugin(),
-        new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoErrorsPlugin()
+        new webpack.HotModuleReplacementPlugin()
     ],
 
     module: {
         loaders: [
             {
                 test: /\.js$/,
-                loader: 'babel',
-                exclude: /node_modules/,
-                query: {
-                    cacheDirectory: true,
-                    presets: ['react'],
-                    plugins:['react-hot-loader/babel']
-                }
+                loaders: ['react-hot', 'babel'],
+                include: path.join(__dirname, 'src')
             }
         ]
     }
