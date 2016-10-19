@@ -27,19 +27,25 @@
 ```
 
 
-#### [lifecycle](https://github.com/apple77y/todo_react/tree/05-lifecycle):
+#### [lifecycle](https://github.com/apple77y/todo_react/tree/05-lifecycle)
 ```
 - 리액트 컴포넌트가 화면에 렌더링 되는 과정
 ```
+
+
+#### [event](https://github.com/apple77y/todo_react/tree/06-event)
+```
+- 클릭 이벤트로부터 데이터를 처리하는 과정
+```
   
   
-#### [stateless](https://github.com/apple77y/todo_react/tree/06-stateless)
+#### [stateless](https://github.com/apple77y/todo_react/tree/07-stateless)
 ```
 - 1단계 개발이 끝난 후, 가능한 순수함수로 리팩토링
 ```
 
 
-#### [propsTypes](https://github.com/apple77y/todo_react/tree/07-propTypes)
+#### [propTypes](https://github.com/apple77y/todo_react/tree/08-propTypes)
 ```
 - 데이터(props)의 형(type) 체크를 통한 개발 오류 방지
 ```
