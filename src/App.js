@@ -6,6 +6,10 @@ var AddLi = require('./component/AddLi');
 var TodoLi = require('./component/TodoLi');
 var EditLi = require('./component/EditLi');
 
+if (module.hot) {
+    module.hot.accept();
+}
+
 ReactDOM.render(
     <div className="container">
         <Title />
