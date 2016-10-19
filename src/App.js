@@ -32,19 +32,10 @@ var todoLi = todos.map(function (todo, i) {
     return (
         <li key={"todo" + i}>
             <span>{todo}</span>
-            <span className="btn-container"><a href="#">수정</a><a href="#">삭제</a></span>
+            <span className="btn-container"><a href="#">삭제</a></span>
         </li>
     );
 });
-
-var editLi = (
-    <li className="input-group input-group-lg">
-        <input type="text" className="form-control" placeholder="수정 버튼 누르면 이렇게"/>
-        <span className="input-group-btn">
-            <button className="btn btn-primary" type="button">수정완료</button>
-        </span>
-    </li>
-);
 
 ReactDOM.render(
     <div className="container">
@@ -53,7 +44,6 @@ ReactDOM.render(
         <hr/>
         <ul>
             {todoLi}
-            {editLi}
         </ul>
     </div>,
 
