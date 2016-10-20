@@ -1,7 +1,7 @@
 var React = require('react');
 
 var AddLi = React.createClass({
-    onClickAdd: function () {
+    onClickAddButton: function () {
         this.props.handleAddedData(this.textInput.value);
         this.textInput.value = '';
         this.textInput.focus();
@@ -16,7 +16,7 @@ var AddLi = React.createClass({
                        ref={function(ref){self.textInput = ref;}}
                 />
                 <span className="input-group-btn">
-                <button className="btn btn-primary" type="button" onClick={this.onClickAdd}>등록</button>
+                <button className="btn btn-primary" type="button" onClick={this.onClickAddButton}>등록</button>
                 </span>
             </div>
         );
