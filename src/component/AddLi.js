@@ -23,4 +23,8 @@ var AddLi = React.createClass({
     }
 });
 
+AddLi.propTypes = {
+    handleAddedData: React.PropTypes.func.isRequired
+};
+
 module.exports = AddLi;

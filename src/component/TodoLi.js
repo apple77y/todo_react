@@ -15,4 +15,9 @@ var TodoLi = function (props) {
     );
 };
 
+TodoLi.propTypes = {
+    handleRemovedData: React.PropTypes.func.isRequired,
+    todo: React.PropTypes.string.isRequired
+};
+
 module.exports = TodoLi;

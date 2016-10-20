@@ -8,4 +8,8 @@ var Title = function(props) {
     );
 };
 
+Title.propTypes = {
+    text: React.PropTypes.string.isRequired
+};
+
 module.exports = Title;
