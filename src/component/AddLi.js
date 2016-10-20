@@ -8,10 +8,12 @@ var AddLi = React.createClass({
     },
 
     render: function () {
+        var self = this;
+
         return (
             <div className="input-group input-group-lg">
                 <input type="text" className="form-control" placeholder="할 일을 입력해주세요"
-                       ref={function(ref){this.textInput = ref;}.bind(this)}
+                       ref={function(ref){self.textInput = ref;}}
                 />
                 <span className="input-group-btn">
                 <button className="btn btn-primary" type="button" onClick={this.onClickAdd}>등록</button>
