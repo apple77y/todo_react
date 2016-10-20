@@ -1,5 +1,26 @@
 # todo_react: 리액트 수업을 위한 저장소
 
+### 최종 결과물
+
+
+![thumnail](https://cloud.githubusercontent.com/assets/11900262/19553618/e376b0c2-96ef-11e6-81cc-265b38d31f18.png)
+
+
+```
+- 쓰기 기능
+- 삭제 기능
+```
+
+### 기술 스택
+
+
+```
+- dependencies: react, react-dom
+- devDependencies: babel-core, babel-loaser, babel-preset-react, react-hot-loader, webpack, webpack-dev-server
+- javaScript version: es5
+```
+
+
 ### 매 단원은 브랜치로 구분되어있음
 
 
