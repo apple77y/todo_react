@@ -1,13 +1,13 @@
 {
     "name": "react_todo",
     "version": "1.0.0",
-    "main": "index.js",
+    "main": "./src/App.js",
     "scripts": {
         "build": "webpack --config webpack.config.js",
         "watch": "webpack --config webpack.config.js --watch",
         "devserver": "node server.js"
     },
-    "author": "",
+    "author": "apple77y@gmail.com",
     "license": "ISC",
     "dependencies": {
         "react": "^15.3.2",
@@ -21,5 +21,5 @@
         "webpack": "^1.12.2",
         "webpack-dev-server": "^1.12.1"
     },
-    "description": ""
+    "description": "todo list의 추가/삭제 기능을 최대한 간단하게 리액트로 개발"
 }
