@@ -17,14 +17,19 @@ var Container = React.createClass({
     },
 
     componentDidMount: function () {
-        this.setState({
-            text: 'To do list',
-            todos: [
-                '이것도 해야 되고',
-                '저것도 해야 되고',
-                '그것도 해야 되고',
-                '언제 다하나'
-            ]
+        var text = 'To do list';
+        var todos = [
+            '이것도 해야 되고',
+            '저것도 해야 되고',
+            '그것도 해야 되고',
+            '언제 다하나'
+        ];
+
+        this.setState(function (prevState) {
+            return {
+                text: text,
+                todos: todos
+            }
         });
     },
 
