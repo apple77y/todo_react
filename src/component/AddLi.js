@@ -1,8 +1,15 @@
 var React = require('react');
+var connect = require('react-redux').connect;
+
+var addTodo = require('../action/todo').addTodo;
 
 var AddLi = React.createClass({
     onClickAddButton: function () {
-        this.props.handleAddedData(this.textInput.value);
+        if (!this.textInput.value.trim()) {
+            return false;
+        }
+
+        this.props.onAddTodo(this.textInput.value);
         this.textInput.value = '';
         this.textInput.focus();
     },
@@ -24,7 +31,15 @@ var AddLi = React.createClass({
 });
 
 AddLi.propTypes = {
-    handleAddedData: React.PropTypes.func.isRequired
+    onAddTodo: React.PropTypes.func.isRequired
 };
 
-module.exports = AddLi;
+var mapDispatchToProps = function (dispatch) {
+    return {
+        onAddTodo: function (todo) {
+            dispatch(addTodo(todo));
+        }
+    }
+};
+
+module.exports = connect(undefined, mapDispatchToProps)(AddLi);

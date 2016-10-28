@@ -6,7 +6,6 @@ var AddLi = require('../component/AddLi');
 var TodoLi = require('../component/TodoLi');
 
 var getData = require('../action/todo').getData;
-var addTodo = require('../action/todo').addTodo;
 var removeTodo = require('../action/todo').removeTodo;
 
 var Todo = React.createClass({
@@ -21,18 +20,6 @@ var Todo = React.createClass({
         this.props.onGetData();
     },
 
-    handleAddedData: function (todo) {
-        if (!todo.trim()) {
-            return false;
-        }
-
-        this.props.onAddTodo(todo);
-    },
-
-    handleRemovedData: function (todo) {
-        this.props.onRemoveTodo(todo);
-    },
-
     render: function () {
         var self = this;
         var todoLi = this.props.todos.map(function (todo, i) {
@@ -42,7 +29,7 @@ var Todo = React.createClass({
         return (
             <div className="container">
                 <Title text={this.props.text}/>
-                <AddLi handleAddedData={this.handleAddedData}/>
+                <AddLi />
                 <hr/>
                 <ul>
                     {todoLi}
@@ -68,9 +55,6 @@ var mapDispatchToProps = function (dispatch) {
     return {
         onGetData: function () {
             dispatch(getData());
-        },
-        onAddTodo: function (todo) {
-            dispatch(addTodo(todo));
         },
         onRemoveTodo: function (todo) {
             dispatch(removeTodo(todo));
