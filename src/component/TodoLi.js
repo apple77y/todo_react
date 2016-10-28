@@ -1,8 +1,11 @@
 var React = require('react');
+var connect = require('react-redux').connect;
+
+var removeTodo = require('../action/todo').removeTodo;
 
 var TodoLi = function (props) {
     function onClickRemove() {
-        props.handleRemovedData(props.todo);
+        props.onRemoveTodo(props.todo);
     }
 
     return (
@@ -16,8 +19,16 @@ var TodoLi = function (props) {
 };
 
 TodoLi.propTypes = {
-    handleRemovedData: React.PropTypes.func.isRequired,
+    onRemoveTodo: React.PropTypes.func.isRequired,
     todo: React.PropTypes.string.isRequired
 };
 
-module.exports = TodoLi;
+var mapDispatchToProps = function (dispatch) {
+    return {
+        onRemoveTodo: function (todo) {
+            dispatch(removeTodo(todo));
+        }
+    }
+};
+
+module.exports = connect(undefined, mapDispatchToProps)(TodoLi);
