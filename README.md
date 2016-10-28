@@ -76,3 +76,9 @@
 ```
 - 데이터(props)의 형(type) 체크를 통한 개발 오류 방지
 ```
+
+
+#### [redux](https://github.com/apple77y/todo_react/tree/09-redux)
+```
+- react-redux를 적용해 콜백 패턴을 리팩토링
+```
