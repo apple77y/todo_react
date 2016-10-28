@@ -40,7 +40,8 @@ var Todo = React.createClass({
 
 Todo.propTypes = {
     text: React.PropTypes.string.isRequired,
-    todos: React.PropTypes.array.isRequired
+    todos: React.PropTypes.array.isRequired,
+    onGetData: React.PropTypes.func.isRequired
 };
 
 var mapStateToProps = function (state) {
