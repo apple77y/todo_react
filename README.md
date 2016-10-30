@@ -15,7 +15,7 @@
 
 
 ```
-- dependencies: react, react-dom
+- dependencies: react, react-dom, react-addons-update, react-redux, redux
 - devDependencies: babel-core, babel-loaser, babel-preset-react, react-hot-loader, webpack, webpack-dev-server
 - javaScript version: es5
 ```
