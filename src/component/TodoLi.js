@@ -1,4 +1,5 @@
 import React, {PureComponent} from 'react';
+import PropTypes from 'prop-types';
 
 class TodoLi extends PureComponent {
     constructor(props) {
@@ -21,5 +22,10 @@ class TodoLi extends PureComponent {
         );
     }
 }
+
+TodoLi.propTypes = {
+    handleRemovedData: PropTypes.func,
+    todo: PropTypes.string
+};
 
 export default TodoLi;

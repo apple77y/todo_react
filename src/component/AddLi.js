@@ -1,4 +1,5 @@
 import React, {PureComponent} from 'react';
+import PropTypes from 'prop-types';
 
 class AddLi extends PureComponent {
     constructor(props) {
@@ -25,5 +26,9 @@ class AddLi extends PureComponent {
         );
     }
 }
+
+AddLi.propTypes = {
+    handleAddedData: PropTypes.func
+};
 
 export default AddLi;

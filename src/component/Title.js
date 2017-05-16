@@ -1,4 +1,5 @@
 import React, {PureComponent} from 'react';
+import PropTypes from 'prop-types';
 
 class Title extends PureComponent {
     constructor(props) {
@@ -13,5 +14,9 @@ class Title extends PureComponent {
         );
     }
 }
+
+Title.propTypes = {
+    text: PropTypes.string
+};
 
 export default Title;
