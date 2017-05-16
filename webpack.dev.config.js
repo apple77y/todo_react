@@ -21,6 +21,12 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin()
     ],
 
+    devServer: {
+        inline: true,
+        port: 3000,
+        hot: true
+    },
+
     module: {
         rules: [
             {
