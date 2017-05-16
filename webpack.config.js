@@ -1,11 +1,13 @@
-var webpack = require('webpack');
+const webpack = require('webpack');
+const path = require('path');
 
 module.exports = {
     entry: './src/App.js',
 
     output: {
-        path: './dist',
-        filename: 'bundle.js'
+        path: path.join(__dirname, 'dist'),
+        filename: 'bundle.js',
+        publicPath: '/'
     },
 
     devtool: 'cheap-module-source-map',
@@ -24,7 +26,7 @@ module.exports = {
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                include: path.join(__dirname, 'src'),
+                include: path.resolve(__dirname, 'src'),
                 use: [
                     {
                         loader: 'babel-loader',
@@ -32,8 +34,7 @@ module.exports = {
                             presets: [
                                 ['es2015', {modules: false}],
                                 'react'
-                            ],
-                            plugins: ['react-hot-loader/babel']
+                            ]
                         }
                     }
                 ]
