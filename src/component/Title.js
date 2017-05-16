@@ -1,11 +1,17 @@
-var React = require('react');
+import React, {PureComponent} from 'react';
 
-var Title = function(props) {
-    return (
-        <div className="page-header">
-            <h1>{props.text}</h1>
-        </div>
-    );
-};
+class Title extends PureComponent {
+    constructor(props) {
+        super(props);
+    }
 
-module.exports = Title;
+    render() {
+        return (
+            <div className="page-header">
+                <h1>{this.props.text}</h1>
+            </div>
+        );
+    }
+}
+
+export default Title;

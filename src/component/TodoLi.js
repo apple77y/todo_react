@@ -1,18 +1,25 @@
-var React = require('react');
+import React, {PureComponent} from 'react';
 
-var TodoLi = function (props) {
-    function onClickRemove() {
-        props.handleRemovedData(props.todo);
+class TodoLi extends PureComponent {
+    constructor(props) {
+        super(props);
+        this.onClickRemove = this.onClickRemove.bind(this);
     }
 
-    return (
-        <li>
-            <span>{props.todo}</span>
-            <span className="btn-container">
-                <a href="#" onClick={onClickRemove}>삭제</a>
-            </span>
-        </li>
-    );
-};
+    onClickRemove() {
+        this.props.handleRemovedData(this.props.todo);
+    }
 
-module.exports = TodoLi;
+    render() {
+        return (
+            <li>
+                <span>{this.props.todo}</span>
+            <span className="btn-container">
+                <a href="#" onClick={this.onClickRemove}>삭제</a>
+            </span>
+            </li>
+        );
+    }
+}
+
+export default TodoLi;

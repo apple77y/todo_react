@@ -1,91 +1,90 @@
-var React = require('react');
+import React, {Component} from 'react';
 
-var Title = require('../component/Title');
-var AddLi = require('../component/AddLi');
-var TodoLi = require('../component/TodoLi');
+import Title from '../component/Title';
+import AddLi from '../component/AddLi';
+import TodoLi from '../component/TodoLi';
 
-var Container = React.createClass({
-    getInitialState: function () {
-        return {
+class Container extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
             text: '',
             todos: []
         };
-    },
 
-    componentWillMount: function () {
+        this.handleAddedData = this.handleAddedData.bind(this);
+        this.handleRemovedData = this.handleRemovedData.bind(this);
+    }
+
+    componentWillMount() {
         console.log('componentWillMount');
-    },
+    }
 
-    componentDidMount: function () {
-        var text = 'To do list';
-        var todos = [
+    componentDidMount() {
+        const text = 'To do list';
+        const todos = [
             '이것도 해야 되고',
             '저것도 해야 되고',
             '그것도 해야 되고',
             '언제 다하나'
         ];
 
-        this.setState(function (prevState) {
+        this.setState((prevState) => {
             return {
                 text: text,
                 todos: todos
             }
         });
-    },
+    }
 
-    componentWillReceiveProps: function () {
+    componentWillReceiveProps() {
         console.log('componentWillReceiveProps');
-    },
+    }
 
-    componentWillUpdate: function () {
+    componentWillUpdate() {
         console.log('componentWillUpdate');
-    },
+    }
 
-    componentDidUpdate: function () {
+    componentDidUpdate() {
         console.log('componentDidUpdate');
-    },
+    }
 
-    componentWillUnmount: function () {
+    componentWillUnmount() {
         console.log('componentWillUnmount');
-    },
+    }
 
-    handleAddedData: function (todo) {
+    handleAddedData(todo) {
         if (!todo.trim()) {
             return false;
         }
 
-        this.setState(function (prevState) {
+        this.setState((prevState) => {
             prevState.todos.push(todo);
-            var newTodos = prevState.todos;
 
             return {
-                todos: newTodos
+                todos: prevState.todos
             }
         });
-    },
+    }
 
-    handleRemovedData: function (todo) {
-        this.setState(function (prevState) {
+    handleRemovedData(todo) {
+        this.setState((prevState) => {
             var index = prevState.todos.indexOf(todo);
             prevState.todos.splice(index, 1);
-            var newTodos = prevState.todos;
 
             return {
-                todos: newTodos
+                todos: prevState.todos
             };
         });
-    },
+    }
 
-    render: function () {
-        var self = this;
-        var todoLi = this.state.todos.map(function (todo, i) {
-            return <TodoLi todo={todo} key={'todo' + i} handleRemovedData={self.handleRemovedData}/>;
-        });
+    render() {
+        const todoLi = this.state.todos.map((todo, i) => <TodoLi todo={todo} key={'todo' + i} handleRemovedData={this.handleRemovedData}/>);
 
         return (
             <div className="container">
                 <Title text={this.state.text}/>
-                <AddLi handleAddedData={this.handleAddedData} />
+                <AddLi handleAddedData={this.handleAddedData}/>
                 <hr/>
                 <ul>
                     {todoLi}
@@ -93,6 +92,6 @@ var Container = React.createClass({
             </div>
         );
     }
-});
+}
 
-module.exports = Container;
+export default Container;

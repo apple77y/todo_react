@@ -1,7 +1,7 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-var Container = require('./container/index');
+import Container from './container/index';
 
 if (module.hot) {
     module.hot.accept();
