@@ -4,6 +4,7 @@ const path = require('path');
 module.exports = {
 
     entry: [
+        'react-hot-loader/patch',
         'webpack-dev-server/client?http://localhost:3000',
         'webpack/hot/only-dev-server',
         './src/App.js'
@@ -39,7 +40,7 @@ module.exports = {
                         options: {
                             presets: [
                                 ['es2015', {modules: false}],
-                                'react',
+                                'react'
                             ],
                             plugins: ['react-hot-loader/babel']
                         }
