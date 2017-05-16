@@ -8,8 +8,10 @@ module.exports = {
         filename: 'bundle.js'
     },
 
+    devtool: 'cheap-module-source-map',
+
     plugins: [
-        new webpack.optimize.OccurenceOrderPlugin(),
+        new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.optimize.UglifyJsPlugin({
             compress: {
                 warnings: false
@@ -18,15 +20,23 @@ module.exports = {
     ],
 
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.js$/,
-                loader: 'babel',
                 exclude: /node_modules/,
-                query: {
-                    cacheDirectory: true,
-                    presets: ['react']
-                }
+                include: path.join(__dirname, 'src'),
+                use: [
+                    {
+                        loader: 'babel-loader',
+                        options: {
+                            presets: [
+                                ['es2015', {modules: false}],
+                                'react'
+                            ],
+                            plugins: ['react-hot-loader/babel']
+                        }
+                    }
+                ]
             }
         ]
     }

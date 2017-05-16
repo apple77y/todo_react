@@ -9,6 +9,8 @@ module.exports = {
         './src/App.js'
     ],
 
+    devtool: 'inline-source-map',
+
     output: {
         path: path.join(__dirname, 'dist'),
         filename: 'bundle.js',
@@ -20,11 +22,23 @@ module.exports = {
     ],
 
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.js$/,
-                loaders: ['react-hot', 'babel'],
-                include: path.join(__dirname, 'src')
+                exclude: /node_modules/,
+                include: path.join(__dirname, 'src'),
+                use: [
+                    {
+                        loader: 'babel-loader',
+                        options: {
+                            presets: [
+                                ['es2015', {modules: false}],
+                                'react',
+                            ],
+                            plugins: ['react-hot-loader/babel']
+                        }
+                    }
+                ]
             }
         ]
     }
