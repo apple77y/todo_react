@@ -11,6 +11,9 @@ class Container extends Component {
             text: "",
             todos: []
         };
+
+        this.handleAddedData = this.handleAddedData.bind(this);
+        this.handleRemovedData = this.handleRemovedData.bind(this);
     }
 
     componentWillMount() {
@@ -35,6 +38,23 @@ class Container extends Component {
         console.log('componentDidMount');
     }
 
+    handleAddedData(text) {
+        this.setState((prevState) => {
+            const {todos} = prevState;
+            todos.push(text);
+        });
+    }
+
+    handleRemovedData(text) {
+        this.setState((prevState) => {
+            const {todos} = prevState;
+            const index = todos.indexOf(text);
+            todos.splice(index, 1);
+
+            return {todos};
+        });
+    }
+
     componentWillReceiveProps() {
         console.log('componentWillReceiveProps');
     }
@@ -53,13 +73,13 @@ class Container extends Component {
 
     render() {
         const todoLi = this.state.todos.map((todo, i) => {
-            return <TodoLi todo={todo} key={'todo' + i}/>;
+            return <TodoLi todo={todo} key={'todo' + i} handleRemovedData={this.handleRemovedData}/>;
         });
 
         return (
             <div className="container">
                 <Title text={this.state.text}/>
-                <AddLi/>
+                <AddLi handleAddedData={this.handleAddedData}/>
                 <hr/>
                 <ul>
                     {todoLi}
