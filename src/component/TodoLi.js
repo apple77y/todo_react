@@ -1,22 +1,20 @@
 import React, {Component} from "react";
 
-class TodoLi extends Component {
-    constructor() {
-        super();
-        this.onClickRemoveButton = this.onClickRemoveButton.bind(this);
-    }
-    render() {
-        return (
-            <li>
-                <span>{this.props.todo}</span>
-                <span className="btn-container"><a href="#" onClick={this.onClickRemoveButton}>삭제</a></span>
-            </li>
-        );
-    }
+const TodoLi = ({handleRemovedData, todo}) => {
+    const onClickRemoveButton = () => {
+        handleRemovedData(todo);
+    };
 
-    onClickRemoveButton() {
-        this.props.handleRemovedData();
-    }
-}
+    return (
+        <li>
+            <span>{todo}</span>
+            <span className="btn-container">
+                <a href="#" onClick={onClickRemoveButton}>
+                    삭제
+                </a>
+            </span>
+        </li>
+    );
+};
 
 export default TodoLi;
