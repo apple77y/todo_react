@@ -8,14 +8,47 @@ class Container extends Component {
     constructor(){
         super();
         this.state = {
-            text: "Todo List",
-            todos: [
-                "이것도 해야 되고",
-                "저것도 해야 되고",
-                "그것도 해야 되고",
-                "언제 다 하나"
-            ]
+            text: "",
+            todos: []
         };
+    }
+
+    componentWillMount() {
+        console.log('componentWillMount');
+    }
+
+    componentDidMount() {
+        const text = "Todo List";
+        const todos = [
+            "이것도 해야 되고",
+            "저것도 해야 되고",
+            "그것도 해야 되고",
+            "언제 다 하나"
+        ];
+
+        this.setState((prevState) => {
+            return {
+                text,
+                todos
+            };
+        });
+        console.log('componentDidMount');
+    }
+
+    componentWillReceiveProps() {
+        console.log('componentWillReceiveProps');
+    }
+
+    componentWillUpdate() {
+        console.log('componentWillUpdate');
+    }
+
+    componentDidUpdate() {
+        console.log('componentDidUpdate');
+    }
+
+    componentWillUnMount() {
+        console.log('componentWillUnMount');
     }
 
     render() {
