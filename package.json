@@ -3,9 +3,9 @@
     "version": "1.0.0",
     "main": "./src/App.js",
     "scripts": {
-        "build": "webpack --config webpack.config.js",
-        "watch": "webpack --config webpack.config.js --watch",
-        "devserver": "webpack-dev-server --config webpack.dev.config.js"
+        "build": "./node_modules/.bin/webpack --config webpack.config.js",
+        "watch": "./node_modules/.bin/webpack --config webpack.config.js --watch",
+        "devserver": "./node_modules/.bin/webpack-dev-server --config webpack.dev.config.js"
     },
     "author": "apple77y@gmail.com",
     "license": "ISC",
