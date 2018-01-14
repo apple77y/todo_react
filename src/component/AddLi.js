@@ -6,7 +6,15 @@ class AddLi extends Component {
         this.onClickAddButton = this.onClickAddButton.bind(this);
     }
 
+    shouldComponentUpdate(nextProps, nextState) {
+        console.log("AddLi shouldComponentUpdate");
+
+        return this.props.handleAddedData !== nextProps.handleAddedData;
+    }
+
     render() {
+        console.log('AddLi render');
+
         return (
             <div className="input-group input-group-lg">
                 <input type="text" className="form-control" placeholder="할 일을 입력해주세요" ref={(input) => this.inputBox = input}/>

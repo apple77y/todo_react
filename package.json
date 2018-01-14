@@ -10,6 +10,7 @@
     "author": "apple77y@gmail.com",
     "license": "ISC",
     "dependencies": {
+        "immutable": "^3.8.2",
         "react": "^15.5.4",
         "react-dom": "^15.5.4"
     },

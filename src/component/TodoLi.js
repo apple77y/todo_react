@@ -5,7 +5,16 @@ class TodoLi extends Component {
         super();
         this.onClickRemoveButton = this.onClickRemoveButton.bind(this);
     }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        console.log("TodoLi shouldComponentUpdate");
+
+        return this.props.todo !== nextProps.todo;
+    }
+
     render() {
+        console.log('TodoLi render');
+
         return (
             <li>
                 <span>{this.props.todo}</span>
@@ -15,7 +24,7 @@ class TodoLi extends Component {
     }
 
     onClickRemoveButton() {
-        this.props.handleRemovedData();
+        this.props.handleRemovedData(this.props.todo);
     }
 }
 
