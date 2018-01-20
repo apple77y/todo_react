@@ -1,15 +1,19 @@
-var webpack = require('webpack');
+const webpack = require('webpack');
+const path = require('path');
 
 module.exports = {
     entry: './src/App.js',
 
     output: {
-        path: './dist',
-        filename: 'bundle.js'
+        path: path.join(__dirname, 'dist'),
+        filename: 'bundle.js',
+        publicPath: '/'
     },
 
+    devtool: 'cheap-module-source-map',
+
     plugins: [
-        new webpack.optimize.OccurenceOrderPlugin(),
+        new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.optimize.UglifyJsPlugin({
             compress: {
                 warnings: false
@@ -18,15 +22,22 @@ module.exports = {
     ],
 
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.js$/,
-                loader: 'babel',
                 exclude: /node_modules/,
-                query: {
-                    cacheDirectory: true,
-                    presets: ['react']
-                }
+                include: path.resolve(__dirname, 'src'),
+                use: [
+                    {
+                        loader: 'babel-loader',
+                        options: {
+                            presets: [
+                                ['es2015', {modules: false}],
+                                'react'
+                            ]
+                        }
+                    }
+                ]
             }
         ]
     }
