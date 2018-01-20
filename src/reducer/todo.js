@@ -1,24 +1,18 @@
-var update = require('react-addons-update');
+import update from 'react-addons-update';
+import actionIndex from '../action/index';
 
-var GET_DATA = require('../action/index').GET_DATA;
-var ADD_TODO = require('../action/index').ADD_TODO;
-var REMOVE_TODO = require('../action/index').REMOVE_TODO;
-
-var initialState = {
+const initialState = {
     text: '',
     todos: []
 };
 
-function todo(state, action) {
-    if (state === undefined) {
-        state = initialState;
-    }
+const todo = (state = initialState, action) => {
+    let text, todos, index;
 
     switch (action.type) {
-
-        case GET_DATA:
-            var text = 'To do list';
-            var todos = [
+        case actionIndex.GET_DATA:
+            text = 'To do list';
+            todos = [
                 '이것도 해야 되고',
                 '저것도 해야 되고',
                 '그것도 해야 되고',
@@ -34,16 +28,16 @@ function todo(state, action) {
                 }
             });
 
-        case ADD_TODO:
+        case actionIndex.ADD_TODO:
             return update(state, {
                 todos: {
                     $push: [action.todo]
                 }
             });
 
-        case REMOVE_TODO:
-            var todos = state.todos;
-            var index = todos.indexOf(action.todo);
+        case actionIndex.REMOVE_TODO:
+            todos = state.todos;
+            index = todos.indexOf(action.todo);
 
             return update(state, {
                 todos: {
@@ -54,6 +48,6 @@ function todo(state, action) {
         default:
             return state;
     }
-}
+};
 
-module.exports = todo;
+export default todo;

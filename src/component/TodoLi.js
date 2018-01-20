@@ -1,34 +1,34 @@
-var React = require('react');
-var connect = require('react-redux').connect;
+import React from 'react';
+import {connect} from 'react-redux';
 
-var removeTodo = require('../action/todo').removeTodo;
+import actionTodo from '../action/todo';
 
-var TodoLi = function (props) {
-    function onClickRemove() {
-        props.onRemoveTodo(props.todo);
+class TodoLi extends React.Component {
+    onClickRemove() {
+        this.props.onRemoveTodo(this.props.todo);
     }
 
-    return (
-        <li>
-            <span>{props.todo}</span>
-            <span className="btn-container">
-                <a href="#" onClick={onClickRemove}>삭제</a>
-            </span>
-        </li>
-    );
-};
+    render() {
+        return (
+            <li>
+                <span>{this.props.todo}</span>
+                <span className="btn-container">
+                    <a href="#" onClick={this.onClickRemove.bind(this)}>삭제</a>
+                </span>
+            </li>
+        );
+    }
+}
 
 TodoLi.propTypes = {
     onRemoveTodo: React.PropTypes.func.isRequired,
     todo: React.PropTypes.string.isRequired
 };
 
-var mapDispatchToProps = function (dispatch) {
-    return {
-        onRemoveTodo: function (todo) {
-            dispatch(removeTodo(todo));
-        }
+const mapDispatchToProps = (dispatch) => ({
+    onRemoveTodo: (todo) => {
+        dispatch(actionTodo.removeTodo(todo));
     }
-};
+});
 
-module.exports = connect(undefined, mapDispatchToProps)(TodoLi);
+export default connect(undefined, mapDispatchToProps)(TodoLi);

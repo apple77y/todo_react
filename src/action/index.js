@@ -1,9 +1,9 @@
-var GET_DATA = 'GET_DATA';
-var ADD_TODO = 'ADD_TODO';
-var REMOVE_TODO = 'REMOVE_TODO';
+const GET_DATA = 'GET_DATA';
+const ADD_TODO = 'ADD_TODO';
+const REMOVE_TODO = 'REMOVE_TODO';
 
-module.exports = {
-    GET_DATA: GET_DATA,
-    ADD_TODO: ADD_TODO,
-    REMOVE_TODO: REMOVE_TODO
+export default {
+    GET_DATA,
+    ADD_TODO,
+    REMOVE_TODO
 };

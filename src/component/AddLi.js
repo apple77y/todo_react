@@ -1,45 +1,41 @@
-var React = require('react');
-var connect = require('react-redux').connect;
+import React from 'react';
+import { connect } from 'react-redux';
 
-var addTodo = require('../action/todo').addTodo;
+import actionTodo from '../action/todo';
 
-var AddLi = React.createClass({
-    onClickAddButton: function () {
+class AddLi extends React.Component {
+    onClickAddButton() {
         if (!this.textInput.value.trim()) {
-            return false;
+            return ;
         }
 
         this.props.onAddTodo(this.textInput.value);
         this.textInput.value = '';
         this.textInput.focus();
-    },
+    }
 
-    render: function () {
-        var self = this;
-
+    render() {
         return (
             <div className="input-group input-group-lg">
                 <input type="text" className="form-control" placeholder="할 일을 입력해주세요"
-                       ref={function(ref){self.textInput = ref;}}
+                       ref={(ref) => {this.textInput = ref;}}
                 />
                 <span className="input-group-btn">
-                <button className="btn btn-primary" type="button" onClick={this.onClickAddButton}>등록</button>
+                <button className="btn btn-primary" type="button" onClick={this.onClickAddButton.bind(this)}>등록</button>
                 </span>
             </div>
         );
     }
-});
+}
 
 AddLi.propTypes = {
     onAddTodo: React.PropTypes.func.isRequired
 };
 
-var mapDispatchToProps = function (dispatch) {
-    return {
-        onAddTodo: function (todo) {
-            dispatch(addTodo(todo));
-        }
+const mapDispatchToProps = (dispatch) => ({
+    onAddTodo: (todo) => {
+        dispatch(actionTodo.addTodo(todo));
     }
-};
+});
 
-module.exports = connect(undefined, mapDispatchToProps)(AddLi);
+export default connect(undefined, mapDispatchToProps)(AddLi);

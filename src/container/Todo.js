@@ -1,27 +1,19 @@
-var React = require('react');
-var connect = require('react-redux').connect;
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
 
-var Title = require('../component/Title');
-var AddLi = require('../component/AddLi');
-var TodoLi = require('../component/TodoLi');
+import Title from '../component/Title';
+import AddLi from '../component/AddLi';
+import TodoLi from '../component/TodoLi';
 
-var getData = require('../action/todo').getData;
+import actionTodo from '../action/todo';
 
-var Todo = React.createClass({
-    defaultProps: function () {
-        return {
-            text: '',
-            todos: []
-        };
-    },
-
-    componentDidMount: function () {
+class Todo extends Component {
+    componentDidMount() {
         this.props.onGetData();
-    },
+    }
 
-    render: function () {
-        var self = this;
-        var todoLi = this.props.todos.map(function (todo, i) {
+    render() {
+        const todoLi = this.props.todos.map((todo, i) => {
             return <TodoLi todo={todo} key={'todo' + i} />;
         });
 
@@ -36,7 +28,13 @@ var Todo = React.createClass({
             </div>
         );
     }
-});
+}
+
+Todo.defaultProps = {
+    text: '',
+    todos: []
+};
+
 
 Todo.propTypes = {
     text: React.PropTypes.string.isRequired,
@@ -44,19 +42,15 @@ Todo.propTypes = {
     onGetData: React.PropTypes.func.isRequired
 };
 
-var mapStateToProps = function (state) {
-    return {
-        text: state.text,
-        todos: state.todos
-    }
-};
+const mapStateToProps = (state) => ({
+    text: state.text,
+    todos: state.todos
+});
 
-var mapDispatchToProps = function (dispatch) {
-    return {
-        onGetData: function () {
-            dispatch(getData());
-        }
+const mapDispatchToProps = (dispatch) => ({
+    onGetData: () => {
+        dispatch(actionTodo.getData());
     }
-};
+});
 
-module.exports = connect(mapStateToProps, mapDispatchToProps)(Todo);
+export default connect(mapStateToProps, mapDispatchToProps)(Todo);

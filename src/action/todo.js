@@ -1,29 +1,21 @@
-var GET_DATA = require('./index').GET_DATA;
-var ADD_TODO = require('./index').ADD_TODO;
-var REMOVE_TODO = require('./index').REMOVE_TODO;
+import actionIndex from './index';
 
-function getData() {
-    return {
-        type: GET_DATA
-    }
-}
+const getData = () => ({
+    type: actionIndex.GET_DATA
+});
 
-function setTodo(todo) {
-    return {
-        type: ADD_TODO,
-        todo: todo
-    };
-}
+const addTodo = (todo) => ({
+    type: actionIndex.ADD_TODO,
+    todo: todo
+});
 
-function removeTodo(todo) {
-    return {
-        type: REMOVE_TODO,
-        todo: todo
-    };
-}
+const removeTodo = (todo) => ({
+    type: actionIndex.REMOVE_TODO,
+    todo: todo
+});
 
-module.exports = {
-    getData: getData,
-    addTodo: setTodo,
-    removeTodo: removeTodo
+export default {
+    getData,
+    addTodo,
+    removeTodo
 };

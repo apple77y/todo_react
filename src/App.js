@@ -1,13 +1,12 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
-var Redux = require('redux');
-var ReactRedux = require('react-redux');
-var createStore = Redux.createStore;
-var Provider = ReactRedux.Provider;
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Redux, { createStore } from 'redux';
+import ReactRedux, { Provider } from 'react-redux';
 
-var reducer = require('./reducer/todo');
-var Todo = require('./container/Todo');
-var store = createStore(reducer);
+import reducer from './reducer/todo';
+import Todo from './container/Todo';
+
+const store = createStore(reducer);
 
 if (module.hot) {
     module.hot.accept();
