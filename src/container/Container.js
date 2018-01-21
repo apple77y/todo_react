@@ -16,6 +16,12 @@ class Container extends Component {
         this.handleRemovedData = this.handleRemovedData.bind(this);
     }
 
+    shouldComponentUpdate(nextProps, nextState) {
+        return (
+            this.state.todos !== nextState.todos
+        );
+    }
+
     componentWillMount() {
         console.log('componentWillMount');
     }
@@ -41,17 +47,27 @@ class Container extends Component {
     handleAddedData(text) {
         this.setState((prevState) => {
             const {todos} = prevState;
-            todos.push(text);
+            const newTodos = [...todos];
+
+            newTodos.push(text);
+
+            return {
+                todos: newTodos
+            };
         });
     }
 
     handleRemovedData(text) {
         this.setState((prevState) => {
             const {todos} = prevState;
-            const index = todos.indexOf(text);
-            todos.splice(index, 1);
+            const newTodos = [...todos];
+            const index = newTodos.indexOf(text);
 
-            return {todos};
+            newTodos.splice(index, 1);
+
+            return {
+                todos: newTodos
+            };
         });
     }
 

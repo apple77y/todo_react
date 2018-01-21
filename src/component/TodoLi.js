@@ -5,6 +5,13 @@ class TodoLi extends Component {
         super();
         this.onClickRemoveButton = this.onClickRemoveButton.bind(this);
     }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        return (
+            this.props.todo !== nextProps.todo
+        );
+    }
+
     render() {
         return (
             <li>

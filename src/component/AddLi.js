@@ -6,6 +6,12 @@ class AddLi extends Component {
         this.onClickAddButton = this.onClickAddButton.bind(this);
     }
 
+    shouldComponentUpdate(nextProps, nextState) {
+        return (
+            this.props.handleAddedData !== nextProps.handleAddedData
+        );
+    }
+
     render() {
         return (
             <div className="input-group input-group-lg">
