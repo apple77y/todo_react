@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { List } from 'immutable';
 import {connect} from 'react-redux';
 
 import Title from '../component/Title';
@@ -38,13 +39,13 @@ Todo.defaultProps = {
 
 Todo.propTypes = {
     text: React.PropTypes.string.isRequired,
-    todos: React.PropTypes.array.isRequired,
+    todos: React.PropTypes.instanceOf(List).isRequired,
     onGetData: React.PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => ({
-    text: state.text,
-    todos: state.todos
+    text: state.get('text'),
+    todos: state.get('todos')
 });
 
 const mapDispatchToProps = (dispatch) => ({

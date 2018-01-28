@@ -1,49 +1,36 @@
-import update from 'react-addons-update';
+import { List, Map } from 'immutable';
 import actionIndex from '../action/index';
 
-const initialState = {
+const initialState = Map({
     text: '',
-    todos: []
-};
+    todos: List()
+});
 
 const todo = (state = initialState, action) => {
-    let text, todos, index;
+    let text, todos;
 
     switch (action.type) {
         case actionIndex.GET_DATA:
             text = 'To do list';
-            todos = [
+            todos = List([
                 '이것도 해야 되고',
                 '저것도 해야 되고',
                 '그것도 해야 되고',
                 '언제 다하나'
-            ];
+            ]);
 
-            return update(state, {
-                text: {
-                    $set: text
-                },
-                todos: {
-                    $set: todos
-                }
-            });
+            return state
+                .update('text', string => string = text)
+                .update('todos', list => list = todos);
 
         case actionIndex.ADD_TODO:
-            return update(state, {
-                todos: {
-                    $push: [action.todo]
-                }
-            });
+            return state
+                .update('todos', list => list.push(action.todo));
+
 
         case actionIndex.REMOVE_TODO:
-            todos = state.todos;
-            index = todos.indexOf(action.todo);
-
-            return update(state, {
-                todos: {
-                    $splice: [[index, 1]]
-                }
-            });
+            return state
+                .update('todos', list => list.filter(value => value !== action.todo));
 
         default:
             return state;
