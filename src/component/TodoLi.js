@@ -8,6 +8,14 @@ class TodoLi extends React.Component {
         this.props.onRemoveTodo(this.props.todo);
     }
 
+    shouldComponentUpdate(nextProps, nextState) {
+        return (
+            this.props.todo !== nextProps.todo ||
+            this.props.onRemoveTodo !== nextProps.onRemoveTodo
+
+        );
+    }
+
     render() {
         return (
             <li>

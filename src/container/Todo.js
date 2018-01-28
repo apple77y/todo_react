@@ -13,6 +13,12 @@ class Todo extends Component {
         this.props.onGetData();
     }
 
+    shouldComponentUpdate(nextProps, nextState) {
+        return (
+            this.props.todos !== nextProps.todos
+        );
+    }
+
     render() {
         const todoLi = this.props.todos.map((todo, i) => {
             return <TodoLi todo={todo} key={'todo' + i} />;

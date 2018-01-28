@@ -4,6 +4,12 @@ import { connect } from 'react-redux';
 import actionTodo from '../action/todo';
 
 class AddLi extends React.Component {
+    shouldComponentUpdate(nextProps, nextState) {
+        return (
+            this.props.onAddTodo !== nextProps.onAddTodo
+        );
+    }
+
     onClickAddButton() {
         if (!this.textInput.value.trim()) {
             return ;
