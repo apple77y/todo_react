@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import Title from '../component/Title';
 import AddLi from '../component/AddLi';
 import TodoLi from '../component/TodoLi';
+import {TodoContext} from "../context/index";
 
 class Container extends Component {
     componentWillMount() {
@@ -17,13 +18,8 @@ class Container extends Component {
             '그것도 해야 되고',
             '언제 다하나'
         ];
-
-        this.setState((prevState) => {
-            return {
-                text: text,
-                todos: todos
-            }
-        });
+        const {setData} = this.context;
+        setData(text, todos);
     }
 
     componentWillReceiveProps() {
@@ -43,12 +39,13 @@ class Container extends Component {
     }
 
     render() {
-        const todoLi = this.state.todos.map((todo, i) => <TodoLi todo={todo} key={'todo' + i} handleRemovedData={this.handleRemovedData}/>);
+        const {text, todos} = this.context;
+        const todoLi = todos.map((todo, i) => <TodoLi todo={todo} key={'todo' + i} />);
 
         return (
             <div className="container">
-                <Title text={this.state.text}/>
-                <AddLi handleAddedData={this.handleAddedData}/>
+                <Title text={text}/>
+                <AddLi />
                 <hr/>
                 <ul>
                     {todoLi}
@@ -57,5 +54,7 @@ class Container extends Component {
         );
     }
 }
+
+Container.contextType = TodoContext;
 
 export default Container;

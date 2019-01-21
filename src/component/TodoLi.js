@@ -1,5 +1,6 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
+import {TodoContext} from "../context";
 
 class TodoLi extends PureComponent {
     constructor(props) {
@@ -8,7 +9,8 @@ class TodoLi extends PureComponent {
     }
 
     onClickRemove() {
-        this.props.handleRemovedData(this.props.todo);
+        const {handleRemovedData} = this.context;
+        handleRemovedData(this.props.todo);
     }
 
     render() {
@@ -27,5 +29,7 @@ TodoLi.propTypes = {
     handleRemovedData: PropTypes.func,
     todo: PropTypes.string
 };
+
+TodoLi.contextType = TodoContext;
 
 export default TodoLi;

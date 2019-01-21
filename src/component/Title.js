@@ -1,4 +1,5 @@
 import React, {PureComponent} from 'react';
+import {TodoContext} from '../context/index';
 import PropTypes from 'prop-types';
 
 class Title extends PureComponent {
@@ -7,9 +8,10 @@ class Title extends PureComponent {
     }
 
     render() {
+        const {text} = this.context;
         return (
             <div className="page-header">
-                <h1>{this.props.text}</h1>
+                <h1>{text}</h1>
             </div>
         );
     }
@@ -18,5 +20,7 @@ class Title extends PureComponent {
 Title.propTypes = {
     text: PropTypes.string
 };
+
+Title.contextType = TodoContext;
 
 export default Title;
