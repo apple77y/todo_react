@@ -10,8 +10,8 @@
     "author": "apple77y@gmail.com",
     "license": "ISC",
     "dependencies": {
-        "react": "^15.3.2",
-        "react-dom": "^15.3.2"
+        "react": "^16.3.2",
+        "react-dom": "^16.3.2"
     },
     "devDependencies": {
         "babel-core": "^6.24.1",
