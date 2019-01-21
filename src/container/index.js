@@ -5,17 +5,6 @@ import AddLi from '../component/AddLi';
 import TodoLi from '../component/TodoLi';
 
 class Container extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            text: '',
-            todos: []
-        };
-
-        this.handleAddedData = this.handleAddedData.bind(this);
-        this.handleRemovedData = this.handleRemovedData.bind(this);
-    }
-
     componentWillMount() {
         console.log('componentWillMount');
     }
@@ -51,31 +40,6 @@ class Container extends Component {
 
     componentWillUnmount() {
         console.log('componentWillUnmount');
-    }
-
-    handleAddedData(todo) {
-        if (!todo.trim()) {
-            return false;
-        }
-
-        this.setState((prevState) => {
-            prevState.todos.push(todo);
-
-            return {
-                todos: prevState.todos
-            }
-        });
-    }
-
-    handleRemovedData(todo) {
-        this.setState((prevState) => {
-            var index = prevState.todos.indexOf(todo);
-            prevState.todos.splice(index, 1);
-
-            return {
-                todos: prevState.todos
-            };
-        });
     }
 
     render() {
