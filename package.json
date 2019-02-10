@@ -3,15 +3,17 @@
     "version": "1.0.0",
     "main": "./src/App.js",
     "scripts": {
-        "build": "./node_modules/.bin/webpack --config webpack.config.js",
-        "watch": "./node_modules/.bin/webpack --config webpack.config.js --watch",
-        "devserver": "node server.js"
+        "build": "NODE_ENV=production ./node_modules/.bin/webpack --config webpack.config.js",
+        "watch": "NODE_ENV=production ./node_modules/.bin/webpack --config webpack.config.js --watch",
+        "devserver": "NODE_ENV=development node server.js"
     },
     "author": "apple77y@gmail.com",
     "license": "ISC",
     "dependencies": {
-        "react": "^15.3.2",
-        "react-dom": "^15.3.2"
+        "react": "^16.6",
+        "react-dom": "^16.6",
+        "react-cache": "^2.0.0-alpha.1",
+        "react-spinners": "^0.5.1"
     },
     "devDependencies": {
         "babel-core": "^6.24.1",
