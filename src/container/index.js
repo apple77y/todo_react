@@ -16,41 +16,37 @@ class Container extends Component {
         this.handleRemovedData = this.handleRemovedData.bind(this);
     }
 
-    componentWillMount() {
-        console.log('componentWillMount');
-    }
+    fetchData () {
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                const text = 'To do list';
+                const todos = [
+                    '이것도 해야 되고',
+                    '저것도 해야 되고',
+                    '그것도 해야 되고',
+                    '언제 다하나'
+                ];
 
-    componentDidMount() {
-        const text = 'To do list';
-        const todos = [
-            '이것도 해야 되고',
-            '저것도 해야 되고',
-            '그것도 해야 되고',
-            '언제 다하나'
-        ];
-
-        this.setState((prevState) => {
-            return {
-                text: text,
-                todos: todos
-            }
+                resolve({
+                    text: text,
+                    todos: todos
+                });
+            }, 2000);
         });
     }
 
-    componentWillReceiveProps() {
-        console.log('componentWillReceiveProps');
-    }
 
-    componentWillUpdate() {
-        console.log('componentWillUpdate');
-    }
+    componentDidMount() {
+        // TODO
+        // const todo = this.TodoResource.read();
+        this.fetchData()
+            .then(data => {
+                this.setState(() => ({
+                    text: data.text,
+                    todos: data.todos,
+                }));
+            })
 
-    componentDidUpdate() {
-        console.log('componentDidUpdate');
-    }
-
-    componentWillUnmount() {
-        console.log('componentWillUnmount');
     }
 
     handleAddedData(todo) {
