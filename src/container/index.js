@@ -5,6 +5,8 @@ import AddLi from '../component/AddLi';
 import TodoLi from '../component/TodoLi';
 
 import { ClipLoader } from 'react-spinners';
+// TODO
+// import {unstable_createResource} from 'react-cache';
 
 const Loader = () => <ClipLoader sizeUnit={"px"} size={150} color={'#dc153c'}/>;
 
@@ -16,6 +18,8 @@ class Container extends Component {
             todos: []
         };
 
+        // TODO
+        // this.TodoResource = unstable_createResource(this.fetchData);
         this.handleAddedData = this.handleAddedData.bind(this);
         this.handleRemovedData = this.handleRemovedData.bind(this);
     }
