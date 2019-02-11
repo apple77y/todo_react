@@ -1,8 +1,12 @@
-import React, {Component} from 'react';
+import React, {Component, Suspense} from 'react';
 
 import Title from '../component/Title';
 import AddLi from '../component/AddLi';
 import TodoLi from '../component/TodoLi';
+
+import { ClipLoader } from 'react-spinners';
+
+const Loader = () => <ClipLoader sizeUnit={"px"} size={150} color={'#dc153c'}/>;
 
 class Container extends Component {
     constructor(props) {
@@ -82,9 +86,11 @@ class Container extends Component {
                 <Title text={this.state.text}/>
                 <AddLi handleAddedData={this.handleAddedData}/>
                 <hr/>
-                <ul>
-                    {todoLi}
-                </ul>
+                <Suspense fallback={<Loader />}>
+                    <ul>
+                        {todoLi}
+                    </ul>
+                </Suspense>
             </div>
         );
     }
