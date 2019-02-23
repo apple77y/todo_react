@@ -1,9 +1,8 @@
-import React, {Component} from 'react';
+import React, {Component, lazy} from 'react';
 import {hot} from 'react-hot-loader';
 
 import Title from '../component/Title';
 import AddLi from '../component/AddLi';
-import TodoLi from '../component/TodoLi';
 import Loader from '../component/common/Loader';
 import {delay} from "../common/utility";
 
@@ -63,7 +62,10 @@ class Container extends Component {
     }
 
     render() {
-        const todoLi = this.state.todos.map((todo, i) => <TodoLi todo={todo} key={'todo' + i} handleRemovedData={this.handleRemovedData}/>);
+        const LazyTodoLi = lazy(async () => {
+            return import('../component/TodoLi');
+        });
+        const todoLi = this.state.todos.map((todo, i) => <LazyTodoLi todo={todo} key={'todo' + i} handleRemovedData={this.handleRemovedData}/>);
 
         return (
             <div className="container">
@@ -71,7 +73,9 @@ class Container extends Component {
                 <AddLi handleAddedData={this.handleAddedData}/>
                 <hr/>
                 <ul>
-                    {todoLi}
+                    <React.Suspense fallback={<Loader/>}>
+                        {todoLi}
+                    </React.Suspense>
                 </ul>
             </div>
         );
