@@ -1,22 +1,12 @@
-import React, {PureComponent} from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 
-class Title extends PureComponent {
-    constructor(props) {
-        super(props);
-    }
-
-    render() {
-        return (
-            <div className="page-header">
-                <h1>{this.props.text}</h1>
-            </div>
-        );
-    }
-}
-
-Title.propTypes = {
-    text: PropTypes.string
+const Title = (props) => {
+    console.log('render');
+    return (
+        <div className="page-header">
+            <h1>{props.text}</h1>
+        </div>
+    );
 };
 
 export default Title;
