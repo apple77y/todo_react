@@ -5,12 +5,13 @@ import Title from '../component/Title';
 import AddLi from '../component/AddLi';
 import TodoLi from '../component/TodoLi';
 import Loader from '../component/common/Loader';
+import {delay} from "../common/utility";
 
 class Container extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            text: '',
+            text: 'To do list',
             todos: []
         };
 
@@ -18,8 +19,11 @@ class Container extends Component {
         this.handleRemovedData = this.handleRemovedData.bind(this);
     }
 
+    componentDidMount() {
+        this.fetchData();
     }
 
+    fetchData() {
         const todos = [
             '이것도 해야 되고',
             '저것도 해야 되고',
@@ -27,14 +31,10 @@ class Container extends Component {
             '언제 다하나'
         ];
 
-        this.setState((prevState) => {
-            return {
-                text: text,
-                todos: todos
-            }
-        });
-    }
-
+        return delay(500)
+            .then(() => {
+                this.setState({todos});
+            });
     }
 
     handleAddedData(todo) {
