@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {hot} from 'react-hot-loader';
 
 import Title from '../component/Title';
 import AddLi from '../component/AddLi';
@@ -94,4 +95,4 @@ class Container extends Component {
     }
 }
 
-export default Container;
+export default hot(module)(Container);
