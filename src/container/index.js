@@ -17,12 +17,8 @@ class Container extends Component {
         this.handleRemovedData = this.handleRemovedData.bind(this);
     }
 
-    componentWillMount() {
-        console.log('componentWillMount');
     }
 
-    componentDidMount() {
-        const text = 'To do list';
         const todos = [
             '이것도 해야 되고',
             '저것도 해야 되고',
@@ -38,20 +34,6 @@ class Container extends Component {
         });
     }
 
-    componentWillReceiveProps() {
-        console.log('componentWillReceiveProps');
-    }
-
-    componentWillUpdate() {
-        console.log('componentWillUpdate');
-    }
-
-    componentDidUpdate() {
-        console.log('componentDidUpdate');
-    }
-
-    componentWillUnmount() {
-        console.log('componentWillUnmount');
     }
 
     handleAddedData(todo) {
