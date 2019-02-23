@@ -2,11 +2,9 @@ const webpack = require('webpack');
 const path = require('path');
 
 module.exports = {
+    mode: 'development',
 
     entry: [
-        'react-hot-loader/patch',
-        'webpack-dev-server/client?http://localhost:3000',
-        'webpack/hot/only-dev-server',
         './src/App.js'
     ],
 
@@ -22,31 +20,20 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin()
     ],
 
-    devServer: {
-        inline: true,
-        port: 3000,
-        hot: true
-    },
-
     module: {
         rules: [
             {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                include: path.resolve(__dirname, 'src'),
-                use: [
-                    {
-                        loader: 'babel-loader',
-                        options: {
-                            presets: [
-                                ['es2015', {modules: false}],
-                                'react'
-                            ],
-                            plugins: ['react-hot-loader/babel']
-                        }
+                test: /\.m?js$/,
+                exclude: /(node_modules|bower_components)/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-env', '@babel/preset-react'],
+                        plugins: ["react-hot-loader/babel", "@babel/plugin-syntax-dynamic-import", "@babel/plugin-transform-runtime"]
                     }
-                ]
+                }
             }
         ]
     }
+
 };

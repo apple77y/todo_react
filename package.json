@@ -3,24 +3,26 @@
     "version": "1.0.0",
     "main": "./src/App.js",
     "scripts": {
-        "build": "./node_modules/.bin/webpack --config webpack.config.js",
-        "watch": "./node_modules/.bin/webpack --config webpack.config.js --watch",
-        "devserver": "node server.js"
+        "devserver": "node_modules/.bin/webpack-dev-server --config webpack.dev.config.js"
     },
     "author": "apple77y@gmail.com",
     "license": "ISC",
     "dependencies": {
-        "react": "^15.3.2",
-        "react-dom": "^15.3.2"
+        "react": "^16.6.0",
+        "react-dom": "^16.6.0",
+        "react-spinners": "^0.5.1"
     },
     "devDependencies": {
-        "babel-core": "^6.24.1",
-        "babel-loader": "^6.4.1",
-        "babel-preset-es2015": "^6.24.0",
-        "babel-preset-react": "^6.24.1",
-        "react-hot-loader": "^3.0.0-beta.6",
-        "webpack": "^2.5.1",
-        "webpack-dev-server": "^2.4.5"
+        "@babel/core": "^7.3.3",
+        "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+        "@babel/plugin-transform-runtime": "^7.2.0",
+        "@babel/preset-env": "^7.3.1",
+        "@babel/preset-react": "^7.0.0",
+        "babel-loader": "^8.0.5",
+        "react-hot-loader": "^4.7.1",
+        "webpack": "^4.29.5",
+        "webpack-cli": "^3.2.3",
+        "webpack-dev-server": "^3.2.0"
     },
     "description": "todo list의 추가/삭제 기능을 최대한 간단하게 리액트로 개발"
 }
