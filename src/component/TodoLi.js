@@ -1,7 +1,6 @@
-import React from 'react';
+import React, {memo} from 'react';
 
-
-const TodoLi = (props) => {
+const TodoLi = memo((props) => {
     const onClickRemove = () => {
         props.handleRemovedData(props.todo);
     };
@@ -14,6 +13,6 @@ const TodoLi = (props) => {
             </span>
         </li>
     );
-};
+});
 
 export default TodoLi;

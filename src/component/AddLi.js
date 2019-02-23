@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {memo} from 'react';
 
-const AddLi = (props) => {
+const AddLi = memo((props) => {
     let textInput = null;
     const onClickAddButton = () => {
         props.handleAddedData(textInput.value);
@@ -18,6 +18,6 @@ const AddLi = (props) => {
                 </span>
         </div>
     );
-};
+});
 
 export default AddLi;
