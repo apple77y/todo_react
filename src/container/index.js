@@ -4,6 +4,7 @@ import {hot} from 'react-hot-loader';
 import Title from '../component/Title';
 import AddLi from '../component/AddLi';
 import TodoLi from '../component/TodoLi';
+import Loader from '../component/common/Loader';
 
 class Container extends Component {
     constructor(props) {
