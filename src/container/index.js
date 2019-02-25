@@ -62,9 +62,7 @@ class Container extends Component {
     }
 
     render() {
-        const LazyTodoLi = lazy(() => {
-            return import('../component/TodoLi');
-        });
+        const LazyTodoLi = lazy(() => import('../component/TodoLi'));
         const todoLi = this.state.todos.map((todo, i) => <LazyTodoLi todo={todo} key={'todo' + i} handleRemovedData={this.handleRemovedData}/>);
 
         return (
