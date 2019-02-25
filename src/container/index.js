@@ -1,4 +1,4 @@
-import React, {Component, lazy} from 'react';
+import React, {Component, Suspense, lazy} from 'react';
 import {hot} from 'react-hot-loader';
 
 import Title from '../component/Title';
@@ -73,9 +73,9 @@ class Container extends Component {
                 <AddLi handleAddedData={this.handleAddedData}/>
                 <hr/>
                 <ul>
-                    <React.Suspense fallback={<Loader/>}>
+                    <Suspense fallback={<Loader/>}>
                         {todoLi}
-                    </React.Suspense>
+                    </Suspense>
                 </ul>
             </div>
         );
